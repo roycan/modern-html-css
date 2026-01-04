@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            line-height: 1.6;
+            padding: 2em;
+        }
+
+        h1 {
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        form {
+            margin-bottom: 1em;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        input {
+            padding: 0.5em;
+            margin-left: 0.5em;
+        }
+    </style>
+    <script src="navbar.js"></script>
+</head>
+
+<body>
+    <h1>Form Validation</h1>
+    <p>HTML5 provides built-in validation attributes.</p>
+
+    <form>
+        <label>Email: <input type="email" required></label>
+        <button type="submit">Submit</button>
+    </form>
+
+    <section class="code-demo">
+        <h2>Code Example</h2>
+        <pre><code>
+    &lt;form&gt;
+    &lt;label&gt;Email: &lt;input type="email" required&gt;&lt;/label&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+  </code></pre>
+        <button onclick="copyCode(this)">Copy Code</button>
+    </section>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling.querySelector('code');
+            navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+                button.textContent = "Copied!";
+                setTimeout(() => button.textContent = "Copy Code", 2000);
+            });
+        }
+    </script>
+
+    <style>
+        .code-demo {
+            margin-top: 2em;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 1em;
+            border-radius: 6px;
+        }
+
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 1em;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 0.5em;
+            padding: 0.4em 0.8em;
+            cursor: pointer;
+        }
+    </style>
+    <script src="footer.js"></script>
+</body>
+
+</html>

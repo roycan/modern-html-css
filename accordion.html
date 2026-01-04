@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accordion with <details></title>
+    
+  <style>
+    body{ font-family: system-ui, sans-serif; line-height: 1.6; padding: 2em; }
+    details { margin: 1em 0; }
+    summary { cursor: pointer; font-weight: bold; }
+    /* Code box styles */
+    pre { background: #272822; color: #f8f8f2; padding: 1em; overflow-x: auto; border-radius: 4px; }
+    .code-demo { margin-top: 2em; background: #f9f9f9; border: 1px solid #ddd; padding: 1em; border-radius: 6px; }
+    button { margin-top: 0.5em; padding: 0.4em 0.8em; cursor: pointer; }
+  </style>
+  <script src="navbar.js"></script>
+
+</head>
+<body>
+  <h1>Accordion with &lt;details&gt;</h1>
+  <p>Use <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> for collapsible sections without JavaScript.</p>
+
+  <details>
+    <summary>When to use</summary>
+    <p>For FAQs, disclosure widgets, or simple accordions.</p>
+  </details>
+
+  <details>
+    <summary>Where it works best</summary>
+    <p>Accessible by default, keyboard-friendly, and supported in modern browsers.</p>
+  </details>
+
+  <details>
+    <summary>How to use</summary>
+    <p>Wrap content in <code>&lt;details&gt;</code> and provide a <code>&lt;summary&gt;</code> as the clickable heading.</p>
+  </details>
+
+  <!-- Code box -->
+  <section class="code-demo">
+    <h2>Code Example</h2>
+    <pre><code>
+&lt;details&gt;
+  &lt;summary&gt;When to use&lt;/summary&gt;
+  &lt;p&gt;For FAQs, disclosure widgets, or simple accordions.&lt;/p&gt;
+&lt;/details&gt;
+    </code></pre>
+    <button onclick="copyCode(this)">Copy Code</button>
+  </section>
+
+  <script>
+    function copyCode(button) {
+      const codeBlock = button.previousElementSibling.querySelector('code');
+      navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+        button.textContent = "Copied!";
+        setTimeout(() => button.textContent = "Copy Code", 2000);
+      });
+    }
+  </script>
+
+  <script src="footer.js"></script>
+
+
+</body>
+</html>

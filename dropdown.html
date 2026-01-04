@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dropdown Demo</title>
+  <style>
+    body{
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      padding: 2em;
+    }
+    h1 {
+      margin-bottom: 0.5em;
+    }
+    p {
+      margin-bottom: 1em;
+    }   
+    nav {
+      background: #333;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex; /* makes items side by side */
+    }
+    nav li {
+      position: relative; /* needed for dropdown positioning */
+    }
+    nav a {
+      display: block;
+      padding: 1rem;
+      color: white;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background: #444;
+    }
+
+    /* Dropdown menu */
+    nav ul ul {
+      display: none; /* hidden by default */
+      position: absolute;
+      top: 100%; /* place below parent */
+      left: 0;
+      background: #eee;
+      padding: 0;
+      min-width: 180px;
+    }
+    nav ul ul li a {
+      color: #333;
+      padding: 0.75rem;
+    }
+    nav ul ul li a:hover {
+      background: #ddd;
+    }
+
+    /* Show dropdown on hover */
+    nav li:hover > ul {
+      display: block;
+    }
+  </style>
+  <script src="navbar.js"></script>
+</head>
+<body>
+
+    <h1>Dropdown Menu with CSS</h1> 
+    <p>Use <code>:hover</code> to show dropdowns without JavaScript.</p>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#">Services</a>
+        <ul>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Design</a></li>
+          <li><a href="#">Consulting</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+
+  <section class="code-demo">
+  <h2>Code Example</h2>
+  <pre><code>
+
+    /* Dropdown menu */
+    nav ul ul {
+      display: none; /* hidden by default */
+      position: absolute;
+      top: 100%; /* place below parent */
+      left: 0;
+      background: #eee;
+      padding: 0;
+      min-width: 180px;
+    }
+    nav ul ul li a {
+      color: #333;
+      padding: 0.75rem;
+    }
+    nav ul ul li a:hover {
+      background: #ddd;
+    }
+
+    /* Show dropdown on hover */
+    nav li:hover > ul {
+      display: block;
+    }
+
+    ----------------------------------------------
+
+      <!-- <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#">Services</a>
+        <ul>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Design</a></li>
+          <li><a href="#">Consulting</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav> -->
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#">Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;
+          &lt;a href="#">Services&lt;/a&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#">Web Development&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#">Design&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#">Consulting&lt;/a&gt;&lt;/li&gt;
+           &lt;/ul&gt;
+       &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;  
+  </code></pre>
+  <button onclick="copyCode(this)">Copy Code</button>
+</section>
+
+<script>
+function copyCode(button) {
+  const codeBlock = button.previousElementSibling.querySelector('code');
+  navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+    button.textContent = "Copied!";
+    setTimeout(() => button.textContent = "Copy Code", 2000);
+  });
+}
+</script>
+
+<style>
+.code-demo {
+  margin-top: 2em;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 1em;
+  border-radius: 6px;
+}
+pre {
+  background: #272822;
+  color: #f8f8f2;
+  padding: 1em;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+button {
+  margin-top: 0.5em;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+}
+</style>
+
+
+<div class="explanation">
+  <h2>Understanding the Dropdown CSS</h2>
+  <dl>
+    <dt><code>nav ul ul { display: none; }</code></dt>
+    <dd>Nested lists (the dropdowns) are hidden by default so they don’t clutter the page.</dd>
+
+    <dt><code>position: absolute;</code></dt>
+    <dd>This takes the dropdown out of the normal flow and lets us place it exactly where we want. 
+        It will be positioned relative to its nearest ancestor with <code>position: relative;</code> 
+        (in this case, the parent <code>&lt;li&gt;</code>).</dd>
+
+    <dt><code>top: 100%; left: 0;</code></dt>
+    <dd>Moves the dropdown so it sits directly below the parent menu item. 
+        <code>top: 100%</code> means “start just below the parent’s bottom edge.” 
+        <code>left: 0</code> aligns it with the left edge of the parent.</dd>
+
+    <dt><code>background: #eee; min-width: 180px;</code></dt>
+    <dd>Styles the dropdown with a light background and ensures it’s wide enough to look like a menu.</dd>
+
+    <dt><code>nav ul ul li a { padding: 0.75rem; }</code></dt>
+    <dd>Gives each dropdown link some breathing room so it’s easy to click.</dd>
+
+    <dt><code>nav ul ul li a:hover { background: #ddd; }</code></dt>
+    <dd>Highlights the link when hovered, giving visual feedback to the user.</dd>
+
+    <dt><code>nav li:hover &gt; ul { display: block; }</code></dt>
+    <dd>When you hover over a parent list item (like “Services”), its hidden dropdown becomes visible. 
+        This is the key rule that makes the menu interactive without JavaScript.</dd>
+  </dl>
+</div>
+
+<style>
+.explanation {
+  margin-top: 2rem;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.explanation dt {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.explanation dd {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+</style>
+
+<script src="footer.js"></script>
+</body>
+</html>

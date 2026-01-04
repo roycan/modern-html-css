@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Animation</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            line-height: 1.6;
+            padding: 2em;
+        }
+
+        h1 {
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-50px);
+            }
+        }
+    </style>
+    <script src="navbar.js"></script>
+
+</head>
+
+<body>
+    <h1>CSS Animation</h1>
+    <p>Use <code>@keyframes</code> and <code>animation</code> for smooth animations.</p>
+
+    <div class="box"></div>
+
+    <section class="code-demo">
+        <h2>Code Example</h2>
+        <pre><code>
+ 
+    .box {
+      width: 100px; height: 100px; background: red;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-50px); }
+    }
+
+  </code></pre>
+        <button onclick="copyCode(this)">Copy Code</button>
+    </section>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling.querySelector('code');
+            navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+                button.textContent = "Copied!";
+                setTimeout(() => button.textContent = "Copy Code", 2000);
+            });
+        }
+    </script>
+
+    <style>
+        .code-demo {
+            margin-top: 2em;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 1em;
+            border-radius: 6px;
+        }
+
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 1em;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 0.5em;
+            padding: 0.4em 0.8em;
+            cursor: pointer;
+        }
+    </style>
+    <script src="footer.js"></script>
+</body>
+
+</html>

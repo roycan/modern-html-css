@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modern HTML & CSS Demos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #f6f8fa;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+    p.lead {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .code-demo {
+      margin-top: 3rem;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 6px;
+    }
+    button.copy {
+      margin-top: 0.5rem;
+      padding: 0.4em 0.8em;
+      cursor: pointer;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      background: #fff;
+    }
+    .card a { text-decoration: none; color: #0366d6; font-weight: bold; }
+  </style>
+  <script src="navbar.js"></script>
+
+</head>
+<body>
+  <header>
+    <h1>Modern HTML & CSS Demos</h1>
+    <p class="lead">
+      Explore interactive patterns that used to require JavaScript—now achievable with native HTML and CSS.
+      Click a card below to learn when, where, and how to use each feature.
+    </p>
+  </header>
+
+  <main class="grid">
+    <div class="card">
+      <h2>Accordion</h2>
+      <p>Collapsible sections with <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code>.</p>
+      <a href="accordion.html">View Demo →</a>
+    </div>
+    <div class="card">
+      <h2>Dropdown Menu</h2>
+      <p>Menus powered by <code>:focus-within</code> and <code>:has()</code>.</p>
+      <a href="dropdown.html">View Demo →</a>
+    </div>
+    <div class="card">
+      <h2>Popover</h2>
+      <p>Native tooltips and overlays with the <code>popover</code> attribute.</p>
+      <a href="popover.html">View Demo →</a>
+    </div>
+    <div class="card">
+      <h2>Container Queries</h2>
+      <p>Components that adapt to their container size.</p>
+      <a href="container-queries.html">View Demo →</a>
+    </div>
+    <div class="card">
+      <h2>Scroll Snap</h2>
+      <p>Smooth carousels and galleries with CSS scroll snapping.</p>
+      <a href="scroll-snap.html">View Demo →</a>
+    </div>
+    <div class="card">
+      <h2>Dialog</h2>
+      <p>Accessible modals with the <code>&lt;dialog&gt;</code> element.</p>
+      <a href="dialog.html">View Demo →</a>
+    </div>
+    <div class="card">
+      <h2>Form Validation</h2>
+      <p>Built-in validation with HTML5 attributes.</p>
+      <a href="form-validation.html">View Demo →</a>
+    </div>
+    <div class="card">
+      <h2>Focus States</h2>
+      <p>Accessible focus handling with <code>:focus-visible</code> and <code>:focus-within</code>.</p>
+      <a href="focus.html">View Demo →</a>
+    </div>
+    <div class="card">
+      <h2>Theme Toggling</h2>
+      <p>Dark/light mode via <code>prefers-color-scheme</code>.</p>
+      <a href="theme.html">View Demo →</a>
+    </div>
+    <div class="card">
+      <h2>CSS Animation</h2>
+      <p>Smooth transitions with <code>@keyframes</code> and <code>animation</code>.</p>
+      <a href="animation.html">View Demo →</a>
+    </div>
+    <div class="card">
+      <h2>Cascade Layers</h2>
+      <p>Organize styles with <code>@layer</code> for predictable overrides.</p>
+      <a href="cascade.html">View Demo →</a>
+    </div>
+  </main>
+
+  <section class="code-demo">
+    <h2>Explaining the CSS Layout Code</h2>
+    <p>
+      This CSS snippet powers the layout and card design on this page:
+    </p>
+    <ul>
+      <li><code>p.lead</code>: Centers and limits the width of the intro text for readability.</li>
+      <li><code>.grid</code>: Uses CSS Grid with <code>auto-fit</code> and <code>minmax</code> to make a responsive card layout.</li>
+      <li><code>.card</code>: Styles each demo card with padding, border, and rounded corners.</li>
+      <li><code>.card:hover</code>: Adds a subtle lift and shadow effect when hovering.</li>
+    </ul>
+
+    <pre><code>p.lead {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}</code></pre>
+    <button class="copy" onclick="copyCode(this)">Copy Code</button>
+  </section>
+
+
+  <div class="explanation">
+  <h2>Breaking Down the CSS</h2>
+  <dl>
+    <dt><code>grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));</code></dt>
+    <dd>
+      <strong>What it does:</strong> Creates a responsive grid layout.<br>
+      <strong>How:</strong> 
+      - <code>repeat()</code> tells the browser to repeat a column pattern.<br>
+      - <code>auto-fit</code> automatically fits as many columns as possible in the available space.<br>
+      - <code>minmax(220px, 1fr)</code> means each column is at least 220px wide but can grow to take up available space (<code>1fr</code>).<br>
+      <strong>When to use:</strong> For responsive card layouts that adapt to screen size.
+    </dd>
+
+    <dt><code>transition: transform 0.2s ease, box-shadow 0.2s ease;</code></dt>
+    <dd>
+      <strong>What it does:</strong> Smoothly animates changes to <code>transform</code> and <code>box-shadow</code> over 0.2 seconds.<br>
+      <strong>How:</strong> 
+      - <code>ease</code> makes the animation start fast and end slow.<br>
+      - Applies to hover effects or interactive states.<br>
+      <strong>When to use:</strong> To make UI interactions feel polished and less abrupt.
+    </dd>
+
+    <dt><code>transform: translateY(-4px);</code></dt>
+    <dd>
+      <strong>What it does:</strong> Moves the element upward by 4 pixels.<br>
+      <strong>How:</strong> Negative Y values move up, positive values move down.<br>
+      <strong>When to use:</strong> For hover effects that give a “lifted” feel to cards or buttons.
+    </dd>
+
+    <dt><code>box-shadow: 0 4px 12px rgba(0,0,0,0.08);</code></dt>
+    <dd>
+      <strong>What it does:</strong> Adds a shadow behind the element.<br>
+      <strong>How:</strong> 
+      - <code>0</code> = no horizontal offset.<br>
+      - <code>4px</code> = vertical offset (shadow appears below).<br>
+      - <code>12px</code> = blur radius (softness of shadow).<br>
+      - <code>rgba(0,0,0,0.08)</code> = color (black at 8% opacity).<br>
+      <strong>When to use:</strong> To create depth and highlight interactive elements.
+    </dd>
+  </dl>
+</div>
+
+
+
+<style>
+.explanation {
+  margin-top: 2rem;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.explanation dt {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.explanation dd {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+</style>
+
+
+  <script>
+    function copyCode(button) {
+      const codeBlock = button.previousElementSibling.querySelector('code');
+      const text = codeBlock.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = button.textContent;
+        button.textContent = 'Copied!';
+        setTimeout(() => button.textContent = original, 2000);
+      });
+    }
+  </script>
+
+<script src="footer.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Theme Toggling</title>
+    <style>
+        /* Default light theme */
+        body {
+            background: white;
+            color: black;
+            font-family: system-ui, sans-serif;
+            padding: 2rem;
+        }
+
+        /* Dark theme via OS preference */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: black;
+                color: white;
+            }
+        }
+
+        /* Manual override: dark mode class */
+        body.dark {
+            background: black !important;
+            color: white !important;
+        }
+
+        /* Manual override: light mode class */
+        body.light {
+            background: white !important;
+            color: black !important;
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="navbar.js"></script>
+</head>
+
+<body>
+    <h1>Theme Toggling</h1>
+    <p>
+        This page adapts to your system theme using
+        <code>@media (prefers-color-scheme)</code>.
+        Use the button below to manually toggle themes.
+    </p>
+
+    <button id="toggleTheme">Toggle Theme</button>
+
+    <script>
+        const btn = document.getElementById('toggleTheme');
+        btn.onclick = function () {
+            if (document.body.classList.contains('dark')) {
+                document.body.classList.remove('dark');
+                document.body.classList.add('light');
+            } else if (document.body.classList.contains('light')) {
+                document.body.classList.remove('light');
+                document.body.classList.add('dark');
+            } else {
+                // If no manual class yet, start with dark
+                document.body.classList.add('dark');
+            }
+        };
+    </script>
+
+    <section class="code-demo">
+        <h2>Code Example</h2>
+        <pre><code>
+    /* Manual override: dark mode class */
+    body.dark {
+      background: black !important;
+      color: white !important;
+    }
+
+    /* Manual override: light mode class */
+    body.light {
+      background: white !important;
+      color: black !important;
+    }
+
+----------------------------------------------
+
+    const btn = document.getElementById('toggleTheme');
+    btn.onclick = function() {
+      if (document.body.classList.contains('dark')) {
+        document.body.classList.remove('dark');
+        document.body.classList.add('light');
+      } else if (document.body.classList.contains('light')) {
+        document.body.classList.remove('light');
+        document.body.classList.add('dark');
+      } else {
+        // If no manual class yet, start with dark
+        document.body.classList.add('dark');
+      }
+    };
+
+  </code></pre>
+        <button onclick="copyCode(this)">Copy Code</button>
+    </section>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling.querySelector('code');
+            navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+                button.textContent = "Copied!";
+                setTimeout(() => button.textContent = "Copy Code", 2000);
+            });
+        }
+    </script>
+
+    <style>
+        .code-demo {
+            margin-top: 2em;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 1em;
+            border-radius: 6px;
+            color: black
+        }
+
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 1em;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 0.5em;
+            padding: 0.4em 0.8em;
+            cursor: pointer;
+        }
+    </style>
+
+
+    <script src="footer.js"></script>
+</body>
+
+</html>

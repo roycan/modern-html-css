@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll Snap Demo</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      gap: 1rem;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      height: 300px;
+      border-radius: 8px;
+    }
+
+    .slide:nth-child(1) { background: #e63946; }
+    .slide:nth-child(2) { background: #457b9d; }
+    .slide:nth-child(3) { background: #2a9d8f; }
+
+    /* Code box styles */
+    .code-demo {
+      margin-top: 2rem;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 6px;
+    }
+    button.copy {
+      margin-top: 0.5rem;
+      padding: 0.4em 0.8em;
+      cursor: pointer;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      background: #fff;
+    }
+  </style>
+  <script src="navbar.js"></script>
+</head>
+<body>
+  <h1>Scroll Snap</h1>
+  <p>
+    Scroll horizontally to see how each slide snaps neatly into place.
+    This is powered by <code>scroll-snap-type</code> and <code>scroll-snap-align</code>.
+  </p>
+
+  <div class="carousel">
+    <div class="slide">Slide 1</div>
+    <div class="slide">Slide 2</div>
+    <div class="slide">Slide 3</div>
+  </div>
+
+  <!-- Code box -->
+  <section class="code-demo">
+    <h2>Code Example</h2>
+    <pre><code>&lt;div class="carousel"&gt;
+  &lt;div class="slide"&gt;Slide 1&lt;/div&gt;
+  &lt;div class="slide"&gt;Slide 2&lt;/div&gt;
+  &lt;div class="slide"&gt;Slide 3&lt;/div&gt;
+&lt;/div&gt;
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 1rem;
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  height: 300px;
+  border-radius: 8px;
+}
+
+    .slide:nth-child(1) { background: #e63946; }
+    .slide:nth-child(2) { background: #457b9d; }
+    .slide:nth-child(3) { background: #2a9d8f; }
+
+</code></pre>
+    <button class="copy" onclick="copyCode(this)">Copy Code</button>
+  </section>
+
+  <script>
+    function copyCode(button) {
+      const codeBlock = button.previousElementSibling.querySelector('code');
+      const text = codeBlock.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = button.textContent;
+        button.textContent = 'Copied!';
+        setTimeout(() => button.textContent = original, 2000);
+      });
+    }
+  </script>
+
+  <div class="explanation">
+  <h2>Explaining the Code</h2>
+  <dl>
+    <dt><code>.carousel { display: flex; }</code></dt>
+    <dd>Uses Flexbox to lay out the slides horizontally in a row.</dd>
+
+    <dt><code>overflow-x: auto;</code></dt>
+    <dd>Allows horizontal scrolling when the slides extend beyond the viewport.</dd>
+
+    <dt><code>scroll-snap-type: x mandatory;</code></dt>
+    <dd>Enables snapping along the horizontal axis. <code>mandatory</code> means the scroll always snaps to a slide.</dd>
+
+    <dt><code>scroll-behavior: smooth;</code></dt>
+    <dd>Makes the snapping animation smooth instead of abrupt.</dd>
+
+    <dt><code>gap: 1rem;</code></dt>
+    <dd>Adds spacing between each slide for visual clarity.</dd>
+
+    <dt><code>.slide { flex: 0 0 100%; }</code></dt>
+    <dd>Each slide takes up the full width of the viewport, so you see one at a time.</dd>
+
+    <dt><code>scroll-snap-align: start;</code></dt>
+    <dd>Tells the browser to align the start of each slide with the viewport when snapping.</dd>
+
+    <dt><code>display: flex; align-items: center; justify-content: center;</code></dt>
+    <dd>Centers the text inside each slide both vertically and horizontally.</dd>
+
+    <dt><code>font-size: 2rem; font-weight: bold; color: white;</code></dt>
+    <dd>Styles the slide text to be large, bold, and readable against the colored background.</dd>
+
+    <dt><code>height: 300px; border-radius: 8px;</code></dt>
+    <dd>Gives each slide a fixed height and rounded corners for a modern look.</dd>
+
+    <dt><code>.slide:nth-child(1/2/3)</code></dt>
+    <dd>Applies different background colors to each slide for visual distinction.</dd>
+  </dl>
+</div>
+
+<style>
+.explanation {
+  margin-top: 2rem;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.explanation dt {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.explanation dd {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+</style>
+
+<div class="explanation">
+  <h2>Deeper Breakdown of Key CSS</h2>
+  <dl>
+    <dt><code>.slide { flex: 0 0 100%; }</code></dt>
+    <dd>
+      <strong>flex: 0 0 100%;</strong> is shorthand for three values:
+      <ul>
+        <li><code>flex-grow: 0</code> → The slide will not grow larger than its set width.</li>
+        <li><code>flex-shrink: 0</code> → The slide will not shrink smaller than its set width.</li>
+        <li><code>flex-basis: 100%</code> → Each slide takes up 100% of the container’s width.</li>
+      </ul>
+      <em>Result:</em> Each slide fills the entire viewport horizontally, so you only see one slide at a time.
+    </dd>
+
+    <dt><code>display: flex; align-items: center; justify-content: center;</code></dt>
+    <dd>
+      These properties turn each slide into a flex container:
+      <ul>
+        <li><code>display: flex</code> → Activates Flexbox layout inside the slide.</li>
+        <li><code>align-items: center</code> → Vertically centers the content within the slide.</li>
+        <li><code>justify-content: center</code> → Horizontally centers the content within the slide.</li>
+      </ul>
+      <em>Result:</em> The text inside each slide is perfectly centered both vertically and horizontally.
+    </dd>
+  </dl>
+</div>
+
+<style>
+.explanation {
+  margin-top: 2rem;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.explanation dt {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.explanation dd {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+.explanation ul {
+  margin: 0.5rem 0 0.5rem 1rem;
+}
+</style>
+<script src="footer.js"></script>
+
+</body>
+</html>

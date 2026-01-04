@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Container Queries Demo</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            margin: 2rem;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        .resizable-container {
+            resize: horizontal;
+            /* allows drag-to-resize */
+            overflow: auto;
+            /* ensures content stays visible */
+            border: 2px dashed #aaa;
+            padding: 1rem;
+            min-width: 200px;
+            max-width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .fixed-containers {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .fixed-container {
+            border: 2px solid #ccc;
+            padding: 1rem;
+            flex: 1;
+        }
+
+        .fixed-container.narrow {
+            width: 280px;
+        }
+
+        .fixed-container.wide {
+            width: 600px;
+        }
+
+        .card {
+            container-type: inline-size;
+            /* declare container context */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 1rem;
+            background: #f9f9f9;
+        }
+
+        .card-content {
+            display: block;
+        }
+
+        /* “Image box” placeholder */
+        .image-box {
+            background: #457b9d;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        /* Container query: when card is wide enough, switch layout */
+        @container (min-width: 400px) {
+            .card-content {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .image-box {
+                flex: 0 0 200px;
+                margin-bottom: 0;
+                /* remove bottom margin in flex layout */
+            }
+        }
+    </style>
+    <script src="navbar.js"></script>
+</head>
+
+<body>
+    <h1>Container Queries Demo</h1>
+    <p>
+        Drag the right edge of the box below to resize the container.
+        Notice how the card layout changes depending on the container’s width, not the viewport.
+    </p>
+
+    <!-- Resizable container -->
+    <div class="resizable-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="image-box">Image Box</div>
+                <p>
+                    This card is <strong>self‑aware</strong>.
+                    When the container is wide enough, the “image box” sits beside the text.
+                    When the container is narrow, it stacks above the text.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <style>
+        .layout {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .sidebar {
+            width: 280px;
+        }
+
+        .main {
+            flex: 1;
+        }
+
+        .card {
+            container-type: inline-size;
+            border: 1px solid #ccc;
+            padding: 1rem;
+            background: #f9f9f9;
+        }
+
+        .card-content {
+            display: block;
+        }
+
+        .image-box {
+            background: #457b9d;
+            color: white;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        @container (min-width: 400px) {
+            .card-content {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .image-box {
+                flex: 0 0 150px;
+                margin-bottom: 0;
+            }
+        }
+    </style>
+
+    <div class="layout">
+        <div class="sidebar">
+            <div class="card">
+                <div class="card-content">
+                    <div class="image-box">Image Box</div>
+                    <p>Sidebar card: always narrow, always stacked.</p>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="card">
+                <div class="card-content">
+                    <div class="image-box">Image Box</div>
+                    <p>Main card: adapts as the main container grows/shrinks.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="code-demo">
+        <h2>Code Example</h2>
+        <pre><code>
+&lt;div class="card"&gt;
+  &lt;div class="card-content"&gt;
+    &lt;div class="image-box"&gt;Image Box&lt;/div&gt;
+    &lt;p&gt;This card adapts to its container width.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+  /* Declare the card as a container */
+  .card {
+    container-type: inline-size;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background: #f9f9f9;
+  }
+
+  /* Default stacked layout */
+  .card-content {
+    display: block;
+  }
+  .image-box {
+    background: #457b9d;
+    color: white;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  /* Container query: switch to side-by-side when wide enough */
+  @container (min-width: 400px) {
+    .card-content {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .image-box {
+      flex: 0 0 200px;
+      margin-bottom: 0;
+    }
+  }
+&lt;/style&gt;
+
+  </code></pre>
+        <button onclick="copyCode(this)">Copy Code</button>
+    </section>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling.querySelector('code');
+            navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+                button.textContent = "Copied!";
+                setTimeout(() => button.textContent = "Copy Code", 2000);
+            });
+        }
+    </script>
+
+    <style>
+        .code-demo {
+            margin-top: 2em;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 1em;
+            border-radius: 6px;
+        }
+
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 1em;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 0.5em;
+            padding: 0.4em 0.8em;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="footer.js"></script>
+</body>
+
+</html>
