@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Survival Guide Scroll Snap</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            color: #fff;
+        }
+
+        .snap-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        .snap-section {
+            height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .focus {
+            background: #4a148c;
+        }
+
+        .time {
+            background: #6a1b9a;
+        }
+
+        .stress {
+            background: #7b1fa2;
+        }
+
+        .routine {
+            background: #8e24aa;
+        }
+
+        h1,
+        h2 {
+            margin: 0.5rem 0;
+        }
+
+        p {
+            max-width: 600px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="snap-container">
+        <section class="snap-section focus">
+            <h1>How to Stay Focused During Exams</h1>
+            <p>Break tasks into chunks, eliminate distractions, and take short breaks to improve retention.</p>
+        </section>
+
+        <section class="snap-section time">
+            <h2>Time Management for Busy Students</h2>
+            <p>Prioritize tasks, set goals, and use planners to balance school, work, and personal life.</p>
+        </section>
+
+        <section class="snap-section stress">
+            <h2>Stress Relief Techniques</h2>
+            <p>Try mindfulness, breathing exercises, or short walks to reduce stress and stay calm.</p>
+        </section>
+
+        <section class="snap-section routine">
+            <h2>How to Build a Study Routine</h2>
+            <p>Create a consistent schedule, prioritize difficult subjects, and include breaks to maintain focus.</p>
+
+            <hr>
+
+            <footer>https://github.com/HannahChanB29/WDProjSodiumChanGuiang.git <br>
+                https://hannahchanb29.github.io/WDProjSodiumChanGuiang/</footer>
+
+        </section>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

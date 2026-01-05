@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio Accordion Demo</title>
+    <!-- External CSS for styling (Bootstrap for quick accordion styles) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png"
+        href="https://static.vecteezy.com/system/resources/previews/026/515/715/large_2x/cute-layer-chocolate-cake-in-pixel-art-free-png.png">
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f9f9f9;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-pic {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-button {
+            font-weight: bold;
+        }
+
+        .accordion-body {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .accordion-body img {
+            max-width: 150px;
+            border-radius: 8px;
+        }
+
+        .accordion-body p {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>2nd Quarter Portfolio (classic Bootstrap)</h1>
+
+    <div class="accordion" id="portfolioAccordion">
+        <!-- Phipa Section -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingPhipa">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePhipa"
+                    aria-expanded="true" aria-controls="collapsePhipa">
+                    🍦 About Phipa
+                </button>
+            </h2>
+            <div id="collapsePhipa" class="accordion-collapse collapse show" aria-labelledby="headingPhipa"
+                data-bs-parent="#portfolioAccordion">
+                <div class="accordion-body">
+                    <img src="https://raw.githubusercontent.com/phipalibunao/CS3_2ndQtr_K18_K21/main/assets/phipapixel.png"
+                        alt="Phipa" class="profile-pic">
+                    <p>
+                        Hi! I’m Phipa, a Grade 9 student passionate about coding and design.
+                        I enjoy experimenting with web technologies and building creative projects.
+                        My hobbies include drawing, gaming, and exploring new programming concepts.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tomas Section -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTomas">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTomas" aria-expanded="false" aria-controls="collapseTomas">
+                    🍔 About Tomas
+                </button>
+            </h2>
+            <div id="collapseTomas" class="accordion-collapse collapse" aria-labelledby="headingTomas"
+                data-bs-parent="#portfolioAccordion">
+                <div class="accordion-body">
+                    <img src="https://raw.githubusercontent.com/phipalibunao/CS3_2ndQtr_K18_K21/main/assets/tomaspixel.png"
+                        alt="Tomas" class="profile-pic">
+                    <p>
+                        My name is Tomas, also a Grade 9 student. I love working on web development projects
+                        and learning how to make websites more interactive. Outside of coding, I enjoy sports,
+                        music, and collaborating with classmates on creative ideas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap JS for accordion functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f9f9f9;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        details {
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: #fff;
+            padding: 0.5rem 1rem;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+            /* hide default arrow if you want custom styling */
+        }
+
+        details[open] {
+            background: #eef;
+        }
+
+        .profile {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .profile img {
+            max-width: 150px;
+            border-radius: 8px;
+        }
+
+        .profile p {
+            flex: 1;
+        }
+    </style>
+    
+    <hr> 
+
+    <h1>2nd Quarter Portfolio (HTML Accordion)</h1>
+    <details open>
+        <summary>🍦 About Phipa</summary>
+        <div class="profile"> <img
+                src="https://raw.githubusercontent.com/phipalibunao/CS3_2ndQtr_K18_K21/main/assets/phipapixel.png"
+                alt="Phipa">
+            <p> Hi! I’m Phipa, a Grade 9 student passionate about coding and design. I enjoy experimenting with web
+                technologies and building creative projects. My hobbies include drawing, gaming, and exploring new
+                programming concepts. </p>
+        </div>
+    </details>
+    <details>
+        <summary>🍔 About Tomas</summary>
+        <div class="profile"> <img
+                src="https://raw.githubusercontent.com/phipalibunao/CS3_2ndQtr_K18_K21/main/assets/tomaspixel.png"
+                alt="Tomas">
+            <p> My name is Tomas, also a Grade 9 student. I love working on web development projects and learning how to
+                make websites more interactive. Outside of coding, I enjoy sports, music, and collaborating with
+                classmates on creative ideas. </p>
+        </div>
+    </details>
+
+    <footer>https://phipalibunao.github.io/CS3_2ndQtr_K18_K21/
+        https://github.com/phipalibunao/CS3_2ndQtr_K18_K21.git
+    </footer>
+</body>
+
+</html>

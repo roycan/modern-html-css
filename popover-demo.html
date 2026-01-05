@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apple Clicker with Native Popover</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            background: #fdf6e3;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #b22222;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            padding: 1rem 2rem;
+            margin: 1rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            background: #b22222;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #8b1a1a;
+        }
+
+        #score {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .apple {
+            width: 120px;
+            margin-top: 2rem;
+            cursor: pointer;
+        }
+
+        /* Native popover styling */
+        .popover-box {
+            border: 2px solid #b22222;
+            border-radius: 8px;
+            padding: 1rem;
+            background: #fff;
+            color: #111;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        .popover-box h2 {
+            margin-top: 0;
+            color: #b22222;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Apple Clicker</h1>
+    <p>Hover over the buttons to see tooltips!</p>
+
+    <!-- Buttons with title tooltips -->
+    <button id="startBtn" title="Start the game and begin scoring">Start</button>
+    <button id="resetBtn" title="Reset your score to zero">Reset</button>
+    <!-- This button opens the native popover -->
+    <button popovertarget="instructionsPopover" title="Read detailed instructions for the game">Instructions</button>
+
+    <!-- Score display -->
+    <div id="score">Score: 0</div>
+
+    <!-- Apple image -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg" alt="Apple" class="apple" id="appleImg"
+        title="Click the apple to earn points">
+
+    <!-- Native popover element -->
+    <div id="instructionsPopover" popover class="popover-box">
+        <h2>Game Instructions</h2>
+        <p>Welcome to <strong>Apple Clicker</strong>! Here’s how to play:</p>
+        <ul>
+            <li>Click <strong>Start</strong> to begin the game.</li>
+            <li>Click the apple image to earn points. Each click adds 1 point to your score.</li>
+            <li>You can click as many times as you want to increase your score.</li>
+            <li>Click <strong>Reset</strong> to set your score back to zero.</li>
+            <li>Hover over buttons or the apple to see quick tooltips.</li>
+        </ul>
+        <p>Try to get the highest score possible — and have fun!</p>
+        <!-- Close button for the popover -->
+        <button popovertarget="instructionsPopover" popovertargetaction="hide">Close</button>
+    </div>
+
+    <script>
+        // Minimal JS just for the game logic
+        let score = 0;
+        let gameActive = false;
+        const scoreDisplay = document.getElementById('score');
+        const appleImg = document.getElementById('appleImg');
+        const startBtn = document.getElementById('startBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        startBtn.addEventListener('click', () => {
+            gameActive = true;
+            score = 0;
+            scoreDisplay.textContent = "Score: " + score;
+        });
+
+        resetBtn.addEventListener('click', () => {
+            score = 0;
+            scoreDisplay.textContent = "Score: " + score;
+        });
+
+        appleImg.addEventListener('click', () => {
+            if (gameActive) {
+                score++;
+                scoreDisplay.textContent = "Score: " + score;
+            }
+        });
+    </script>
+
+    <footer>
+        <p>Website: https://uandoc.github.io/WDProjPotassiumDoctoleroLampa/ <br>
+            Repository link: https://github.com/UanDoc/WDProjPotassiumDoctoleroLampa</p>
+    </footer>
+</body>
+
+</html>

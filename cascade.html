@@ -1,55 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Cascade Layers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     /* Page styles (not part of the teaching snippet) */
-    body { font-family: system-ui, sans-serif; line-height: 1.6; padding: 2rem; }
-    h1 { margin-bottom: 0.5rem; }
-    .note { background: #f6f8fa; border: 1px solid #d0d7de; padding: 1rem; border-radius: 8px; }
-    .demo { border: 1px solid #d0d7de; border-radius: 8px; padding: 1rem; margin: 1rem 0; }
-    .card { padding: 1rem; border-radius: 6px; }
-    .btn { display: inline-block; padding: 0.5rem 0.75rem; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; cursor: pointer; }
+    body {
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .note {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .demo {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .card {
+      padding: 1rem;
+      border-radius: 6px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+    }
 
     /* Teaching snippet starts here — @layer in action */
     @layer reset, base, theme, utilities;
 
     @layer reset {
-      * { box-sizing: border-box; margin: 0; padding: 0; }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
     }
 
     @layer base {
-      body { color: #222; }
-      .card { border: 1px solid #ccc; background: #fff; }
+      body {
+        color: #222;
+      }
+
+      .card {
+        border: 1px solid #ccc;
+        background: #fff;
+      }
     }
 
     @layer theme {
-      body { background: lavender; }
-      .card { background: #fffafc; border-color: #e0b3d6; }
-      .btn { background: #f0e6f6; border-color: #c8a2c8; }
+      body {
+        background: lavender;
+      }
+
+      .card {
+        background: #fffafc;
+        border-color: #e0b3d6;
+      }
+
+      .btn {
+        background: #f0e6f6;
+        border-color: #c8a2c8;
+      }
     }
 
     @layer utilities {
-      .rounded { border-radius: 12px; }
-      .shadow { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+      .rounded {
+        border-radius: 12px;
+      }
+
+      .shadow {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
     }
 
     /* Code box styles */
-    .code-demo { margin-top: 2rem; background: #f9f9f9; border: 1px solid #ddd; padding: 1rem; border-radius: 8px; }
-    pre { background: #0f172a; color: #e2e8f0; padding: 1rem; overflow-x: auto; border-radius: 6px; }
-    .copy { margin-top: 0.5rem; }
+    .code-demo {
+      margin-top: 2rem;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 6px;
+    }
+
+    .copy {
+      margin-top: 0.5rem;
+    }
   </style>
   <script src="navbar.js"></script>
 
 </head>
+
 <body>
   <h1>Cascade Layers</h1>
   <p class="note">
-    <strong>When:</strong> Use <code>@layer</code> to control cascade order across resets, base styles, themes, and utilities—especially in larger projects or teaching code organization.<br>
-    <strong>Where:</strong> Component libraries, multi-author codebases, or any site where predictable overrides matter.<br>
-    <strong>How:</strong> Declare layer order once (e.g., <code>@layer reset, base, theme, utilities;</code>), then place rules inside named layers. Later layers win unless specificity or importance changes that.
+    <strong>When:</strong> Use <code>@layer</code> to control cascade order across resets, base styles, themes, and
+    utilities—especially in larger projects or teaching code organization.<br>
+    <strong>Where:</strong> Component libraries, multi-author codebases, or any site where predictable overrides
+    matter.<br>
+    <strong>How:</strong> Declare layer order once (e.g., <code>@layer reset, base, theme, utilities;</code>), then
+    place rules inside named layers. Later layers win unless specificity or importance changes that.
   </p>
 
   <section class="demo">
@@ -107,8 +184,9 @@
       });
     }
   </script>
-
+  <div> <a href="cascade-demo.html">Cascade Layers Demo</a> </div>
   <script src="footer.js"></script>
 
 </body>
+
 </html>

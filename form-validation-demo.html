@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clash Royale Strategy Submission</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(135deg, #1a237e, #3949ab); /* Clash Royale blue theme */
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.5;
+    }
+
+    form {
+      background: #fff;
+      color: #333;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    /* Validation feedback */
+    input:invalid, select:invalid, textarea:invalid {
+      border-color: red;
+      background: #ffe6e6;
+    }
+    input:valid, select:valid, textarea:valid {
+      border-color: green;
+      background: #e6ffe6;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #1a237e;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #3949ab;
+    }
+  </style>
+</head>
+<body>
+  <h1>Clash Royale Strategy Submission</h1>
+  <p>
+    Share your favorite evolution card and strategy! Fields will show green when valid, red when invalid.
+  </p>
+
+  <form>
+    <label>
+      Player Name:
+      <input type="text" name="player" required minlength="2" placeholder="Enter your name">
+    </label>
+
+    <label>
+      Favorite Evolution Card:
+      <select name="card" required>
+        <option value="" disabled selected>Select a card</option>
+        <option value="archer">Archer Evolution</option>
+        <option value="knight">Knight Evolution</option>
+        <option value="skeleton">Skeleton Evolution</option>
+        <option value="hog">Hog Rider Evolution</option>
+        <option value="wizard">Wizard Evolution</option>
+        <!-- Add more cards as needed -->
+      </select>
+    </label>
+
+    <label>
+      Strategy Description:
+      <textarea name="strategy" required minlength="15" 
+        placeholder="Describe your strategy (at least 15 characters)"></textarea>
+    </label>
+
+    <button type="submit">Submit Strategy</button>
+  </form>
+
+  <br>
+  <hr> 
+  <br>
+  <footer> https://github.com/Wayne-411/WDProjRubidiumCuetoMorana <br>
+https://wayne-411.github.io/WDProjRubidiumCuetoMorana/
+</footer>
+</body>
+</html>

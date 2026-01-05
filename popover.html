@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Popover API</title>
@@ -9,12 +10,15 @@
       line-height: 1.6;
       padding: 2em;
     }
+
     h1 {
       margin-bottom: 0.5em;
     }
+
     p {
       margin-bottom: 1em;
     }
+
     [popover] {
       border: 1px solid #ccc;
       padding: 1em;
@@ -22,9 +26,10 @@
       background: #f9f9f9;
       max-width: 200px;
     }
-  </style>  
+  </style>
   <script src="navbar.js"></script>
 </head>
+
 <body>
   <h1>Popover API</h1>
   <p>Use the <code>popover</code> attribute for native tooltips and popovers.</p>
@@ -35,14 +40,14 @@
   </div>
 
   <h1> Simple <code>title</code> Tooltip </h1>
- <button title="This is a native tooltip"> 
-    Hover me (title attribute) 
-</button>
+  <button title="This is a native tooltip">
+    Hover me (title attribute)
+  </button>
 
 
- <section class="code-demo">
-  <h2>Code Example</h2>
-  <pre><code>
+  <section class="code-demo">
+    <h2>Code Example</h2>
+    <pre><code>
   <!-- <button popovertarget="info">Show Info</button>
   <div id="info" popover>
     <p>This is a native popover!</p>
@@ -58,41 +63,44 @@
       Hover me (title attribute)
     &lt;/button&gt;
   </code></pre>
-  <button onclick="copyCode(this)">Copy Code</button>
-</section>
+    <button onclick="copyCode(this)">Copy Code</button>
+  </section>
 
-<script>
-function copyCode(button) {
-  const codeBlock = button.previousElementSibling.querySelector('code');
-  navigator.clipboard.writeText(codeBlock.innerText).then(() => {
-    button.textContent = "Copied!";
-    setTimeout(() => button.textContent = "Copy Code", 2000);
-  });
-}
-</script>
+  <script>
+    function copyCode(button) {
+      const codeBlock = button.previousElementSibling.querySelector('code');
+      navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+        button.textContent = "Copied!";
+        setTimeout(() => button.textContent = "Copy Code", 2000);
+      });
+    }
+  </script>
 
-<style>
-.code-demo {
-  margin-top: 2em;
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  padding: 1em;
-  border-radius: 6px;
-}
-pre {
-  background: #272822;
-  color: #f8f8f2;
-  padding: 1em;
-  overflow-x: auto;
-  border-radius: 4px;
-}
-button {
-  margin-top: 0.5em;
-  padding: 0.4em 0.8em;
-  cursor: pointer;
-}
-</style>
+  <style>
+    .code-demo {
+      margin-top: 2em;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 1em;
+      border-radius: 6px;
+    }
 
-<script src="footer.js"></script>
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 1em;
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 0.5em;
+      padding: 0.4em 0.8em;
+      cursor: pointer;
+    }
+  </style>
+  <div> <a href="popover-demo.html">Popover Demo</a> </div>
+  <script src="footer.js"></script>
 </body>
+
 </html>

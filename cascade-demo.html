@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Minecraft Utilities Cascade Layers Demo</title>
+  <style>
+    /* Base styles */
+    @layer base {
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        margin: 0;
+        padding: 2rem;
+      }
+      h1 {
+        text-align: center;
+        color: #2e7d32;
+      }
+    }
+
+    /* Component styles */
+    @layer components {
+      .calculator {
+        background: #fff;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1rem auto;
+        max-width: 400px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      }
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+      input {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        background: #2e7d32;
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
+
+    /* Utility overrides */
+    @layer utilities {
+      input:focus {
+        border-color: #2e7d32;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(46,125,50,0.3);
+      }
+      .highlight {
+        background: #c8e6c9;
+        padding: 0.5rem;
+        border-radius: 4px;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Minecraft Utilities</h1>
+  <div class="calculator">
+    <label for="coords">Enter Nether Coordinates (X, Z):</label>
+    <input type="text" id="coords" placeholder="e.g. 120, -64">
+    <button id="convertBtn">Convert</button>
+    <p id="result" class="highlight">Result will appear here</p>
+  </div>
+
+  <script>
+    const convertBtn = document.getElementById('convertBtn');
+    const result = document.getElementById('result');
+
+    convertBtn.addEventListener('click', () => {
+      const input = document.getElementById('coords').value.trim();
+      if (!input) {
+        result.textContent = "Please enter coordinates.";
+        return;
+      }
+
+      // Split input into X and Z
+      const parts = input.split(',');
+      if (parts.length < 2) {
+        result.textContent = "Format should be: X, Z";
+        return;
+      }
+
+      const x = parseFloat(parts[0]);
+      const z = parseFloat(parts[1]);
+
+      if (isNaN(x) || isNaN(z)) {
+        result.textContent = "Coordinates must be numbers.";
+        return;
+      }
+
+      // Nether to Overworld conversion: multiply by 8
+      const overworldX = x * 8;
+      const overworldZ = z * 8;
+
+      result.textContent = `Overworld Coordinates: X=${overworldX}, Z=${overworldZ}`;
+    });
+  </script>
+  <br><hr><br>
+  <footer>https://github.com/croissant1095/CS3_Project_BalaresSurla/<br>
+https://croissant1095.github.io/CS3_Project_BalaresSurla/index.html</footer>
+</body>
+</html>

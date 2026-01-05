@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Chef's Corner - CSS Animation & Transition Demo 👩‍🍳🧁</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      background: #fff8f0;
+      background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,182,193,.1) 35px, rgba(255,182,193,.1) 70px);
+      min-height: 100vh;
+      padding: 2rem;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #b22222;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-out;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #8b4513;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-out 0.2s backwards;
+      font-size: 1.1rem;
+    }
+
+    .decorative {
+      text-align: center;
+      color: #ff69b4;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+
+    /* Section styling */
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border: 2px dashed #ffb6c1;
+    }
+
+    .section h2 {
+      color: #b22222;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    /* ===== CSS TRANSITIONS DEMOS ===== */
+    
+    /* Transition Demo 1: Hover effects - Beef */
+    .transition-box {
+      background: linear-gradient(135deg, #8b4513, #a0522d);
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .transition-box:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(139, 69, 19, 0.4);
+    }
+
+    /* Transition Demo 2: Color change - Desserts */
+    .color-transition {
+      background: #ffb6c1;
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    .color-transition:hover {
+      background: #ff69b4;
+      color: #fff;
+    }
+
+    /* Transition Demo 3: Width expand - Vegetables */
+    .expand-box {
+      background: #228b22;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: width 0.4s ease;
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    .expand-box:hover {
+      width: 300px;
+    }
+
+    /* Transition Demo 4: Opacity fade - Pasta */
+    .fade-transition {
+      background: #daa520;
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: opacity 0.5s ease;
+    }
+
+    .fade-transition:hover {
+      opacity: 0.5;
+    }
+
+    /* ===== CSS ANIMATIONS DEMOS ===== */
+
+    /* Animation Demo 1: Spin - Pizza */
+    .spin-box {
+      background: linear-gradient(135deg, #ff6347, #ff4500);
+      color: white;
+      padding: 2rem;
+      border-radius: 50%;
+      text-align: center;
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Animation Demo 2: Bounce - Beverages */
+    .bounce-box {
+      background: linear-gradient(135deg, #87ceeb, #4682b4);
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      animation: bounce 1s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* Animation Demo 3: Pulse - Cupcake */
+    .pulse-box {
+      background: linear-gradient(135deg, #ff69b4, #ffb6c1);
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Animation Demo 4: Slide In - Pork */
+    .slide-box {
+      background: linear-gradient(135deg, #ffc0cb, #ffb6c1);
+      color: #333;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      animation: slideIn 2s ease-out infinite;
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    /* Animation Demo 5: Rainbow Background - Chicken */
+    .rainbow-box {
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      color: white;
+      animation: rainbow 5s linear infinite;
+    }
+
+    @keyframes rainbow {
+      0% { background: #ffd700; }
+      25% { background: #f4a460; }
+      50% { background: #daa520; }
+      75% { background: #f4a460; }
+      100% { background: #ffd700; }
+    }
+
+    /* Animation Demo 6: Fade In Down */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Interactive button */
+    .interactive-btn {
+      display: inline-block;
+      background: #b22222;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .interactive-btn:hover {
+      background: #8b0000;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .interactive-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Combined effects */
+    .combined-box {
+      background: linear-gradient(135deg, #ff69b4, #ffb6c1);
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      animation: pulse 2s ease-in-out infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .combined-box:hover {
+      transform: scale(1.15);
+      box-shadow: 0 20px 40px rgba(255, 105, 180, 0.5);
+      animation: none;
+    }
+
+    .note {
+      background: #fff3cd;
+      color: #856404;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      border-left: 4px solid #ffc107;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>👩‍🍳 Little Chef's Corner 🧁</h1>
+    <p class="subtitle">CSS Animation & Transition Demo</p>
+    <p class="decorative">─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ────</p>
+
+    <!-- Transitions Section -->
+    <section class="section">
+      <h2>🔄 CSS Transitions (Hover to See Magic!)</h2>
+      <p>Transitions smoothly change property values - just like watching ingredients transform into delicious dishes!</p>
+      
+      <div class="demo-grid">
+        <div class="transition-box">
+          <strong>𓃓 Beef Stew</strong>
+          <p>Hover to lift me!</p>
+        </div>
+
+        <div class="color-transition">
+          <strong>🍰 Sweet Treats</strong>
+          <p>Watch my colors change!</p>
+        </div>
+
+        <div class="fade-transition">
+          <strong>🍝 Pasta Magic</strong>
+          <p>I fade on hover!</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <div class="expand-box">
+          <strong>🥬 Fresh Veggies</strong>
+        </div>
+      </div>
+
+      <div class="note">
+        💡 <strong>Transitions</strong> need a trigger (like :hover) - just like recipes need a chef to start cooking!
+      </div>
+    </section>
+
+    <!-- Animations Section -->
+    <section class="section">
+      <h2>✨ CSS Animations (Always Cooking!)</h2>
+      <p>Animations use @keyframes to create continuous motion - like a kitchen that never sleeps! ♡</p>
+      
+      <div class="demo-grid">
+        <div class="spin-box">
+          <strong>🍕 Pizza</strong>
+          <p>Spinning forever!</p>
+        </div>
+
+        <div class="bounce-box">
+          <strong>🥂 Refreshing Drinks</strong>
+          <p>Bubbling up & down</p>
+        </div>
+
+        <div class="pulse-box">
+          <strong>🧁 Cupcakes</strong>
+          <p>Rising & falling</p>
+        </div>
+
+        <div class="slide-box">
+          <strong>⍝◜ᐢ•🐽•ᐢ◝⍝ Pork Chops</strong>
+          <p>Sliding in fresh</p>
+        </div>
+
+        <div class="rainbow-box">
+          <strong>꒰ঌ( •ө• )໒꒱ Chicken</strong>
+          <p>Golden rotation</p>
+        </div>
+      </div>
+
+      <div class="note">
+        💡 <strong>Animations</strong> run automatically with @keyframes - perfect for showing off your favorite recipes!
+      </div>
+    </section>
+
+    <!-- Combined Section -->
+    <section class="section">
+      <h2>🌟 Combined: The Best of Both!</h2>
+      <p>Mix animations & transitions - just like combining ingredients for the perfect recipe! ꉂ(˵˃ ᗜ ˂˵)</p>
+      
+      <div style="display: flex; justify-content: center; margin-top: 1.5rem;">
+        <div class="combined-box">
+          <strong>୧ ‧₊˚ 🍮 ⋅ ☆ Dessert Special</strong>
+          <p>I'm pulsing automatically! Hover over me to see both effects working together - animation + transition = perfection!</p>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button class="interactive-btn">🍳 Cook Something Amazing!</button>
+      </div>
+
+      <div class="note">
+        💡 Combine animations and transitions for interactive cooking experiences! The animation runs continuously while transitions respond when you interact.
+      </div>
+    </section>
+  </div>
+</body>
+</html>

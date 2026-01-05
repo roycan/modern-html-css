@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GoalGarden Theme Toggle Demo</title>
+  <style>
+    :root {
+      --bg-color: #f0f0f0;
+      --text-color: #333;
+      --card-color: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: var(--card-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Dark theme */
+    body.dark {
+      --bg-color: #1a237e;
+      --text-color: #fff;
+      --card-color: #3949ab;
+    }
+
+    /* Focus states for accessibility */
+    button:focus-visible {
+      outline: 3px solid #ffeb3b;
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>GoalGarden</h1>
+  <p>Grow your goals like plants. Toggle the theme to see day vs night garden.</p>
+
+  <div class="card">
+    <h2>Today's Goal</h2>
+    <p>Finish 2 chapters of math review.</p>
+    <button id="toggleTheme">Toggle Theme</button>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleTheme');
+    toggleBtn.onclick = toggleTheme;
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+  <footer>Repo: https://github.com/DJA0616/WDProjSodiumAsisAsperin.git <br>
+Pages: https://dja0616.github.io/WDProjSodiumAsisAsperin/
+    </footer>
+</body>
+</html>

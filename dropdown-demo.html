@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alice in Borderland Characters</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #111;
+            color: #eee;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background: #222;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #eee;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: #333;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #eee;
+            min-width: 180px;
+            padding: 0;
+            z-index: 1000;
+        }
+
+        nav ul ul li a {
+            color: #111;
+            padding: 0.75rem 1rem;
+        }
+
+        nav ul ul li a:hover {
+            background: #ddd;
+        }
+
+        nav li:hover>ul {
+            display: block;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .character {
+            display: none;
+            margin-top: 2rem;
+        }
+
+        .character img {
+            max-width: 200px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .character h2 {
+            margin: 0.5rem 0;
+            color: #fff;
+        }
+
+        .character p {
+            max-width: 600px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li>
+                <a href="#">Characters</a>
+                <ul>
+                    <li><a href="#" onclick="showCharacter('arisu')">Arisu</a></li>
+                    <li><a href="#" onclick="showCharacter('usagi')">Usagi</a></li>
+                    <li><a href="#" onclick="showCharacter('chishiya')">Chishiya</a></li>
+                    <li><a href="#" onclick="showCharacter('kuina')">Kuina</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Alice in Borderland</h1>
+        <p>Select a character from the dropdown menu to learn more.</p>
+
+        <!-- Character Profiles -->
+        <div id="arisu" class="character">
+            <img src="https://ejmpurisima.github.io/WDProjPotassium_PurisimaTuddao/public/characs/arisu.jpg"
+                alt="Arisu">
+            <h2>Ryohei Arisu</h2>
+            <p>Arisu is the main protagonist of *Alice in Borderland*. A disaffected young man who finds himself trapped
+                in a deadly alternate Tokyo where he must play survival games to live. His intelligence and
+                problem‑solving skills help him navigate the challenges.</p>
+        </div>
+
+        <div id="usagi" class="character">
+            <img src="https://ejmpurisima.github.io/WDProjPotassium_PurisimaTuddao/public/characs/usagi.jpg"
+                alt="Usagi">
+            <h2>Yuzuha Usagi</h2>
+            <p>Usagi is a skilled mountain climber who partners with Arisu. Her resilience and optimism balance Arisu’s
+                doubts, and together they form a strong bond while facing the brutal games of Borderland.</p>
+        </div>
+
+        <div id="chishiya" class="character">
+            <img src="https://ejmpurisima.github.io/WDProjPotassium_PurisimaTuddao/public/characs/chishiya.jpg"
+                alt="Chishiya">
+            <h2>Shuntarō Chishiya</h2>
+            <p>Chishiya is a cunning and enigmatic player. He often manipulates situations to his advantage, preferring
+                strategy over brute force. His calm demeanor hides a sharp mind and a willingness to outwit opponents.
+            </p>
+        </div>
+
+        <div id="kuina" class="character">
+            <img src="https://ejmpurisima.github.io/WDProjPotassium_PurisimaTuddao/public/characs/kuina.jpg"
+                alt="Kuina">
+            <h2>Kuina Hikari</h2>
+            <p>Hikari Kuina (水鶏 光, Kuina Hikari) is a major character in Alice in Borderland. She was a former Clubs
+                specialist but is currently a Spades.
+        </div>
+        <footer>https://ejmpurisima.github.io/WDProjPotassium_PurisimaTuddao/public/about.html
+            https://github.com/ejmpurisima/WDProjPotassium_PurisimaTuddao
+        </footer>
+
+    </div>
+
+
+    <script>
+        function showCharacter(id) {
+            // Hide all characters
+            document.querySelectorAll('.character').forEach(el => el.style.display = 'none');
+            // Show the selected character
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>

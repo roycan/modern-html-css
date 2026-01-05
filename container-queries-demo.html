@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form with Container Queries</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f0f0f0;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Resizable parent box */
+        .login-box {
+            resize: horizontal;
+            /* allow horizontal resizing */
+            overflow: auto;
+            width: 280px;
+            /* starting width */
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background: #fff;
+
+            /* Make this a container */
+            container-type: inline-size;
+            container-name: login;
+        }
+
+        .login-box form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            padding: 0.5rem;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            background: #333;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        /* Container query: when login-box is at least 400px wide */
+        @container login (min-width: 400px) {
+            .login-box form {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .login-box label {
+                flex: 1 1 45%;
+            }
+
+            .login-box button {
+                flex: 1 1 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Login Demo (Container Queries)</h1>
+    <p>Drag the right edge of the box to resize it and see the layout change.</p>
+
+    <div class="login-box">
+        <form>
+            <label>
+                Username
+                <input type="text" placeholder="Enter username">
+            </label>
+            <label>
+                Password
+                <input type="password" placeholder="Enter password">
+            </label>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <footer>https://github.com/jfkam/WDProjSectionDalimotKam
+        https://jfkam.github.io/WDProjSectionDalimotKam/
+    </footer>
+</body>
+
+</html>
